@@ -1,16 +1,20 @@
-import turtles.TurtleBrush;
+import brushes.PolyBrush;
+import brushes.StarBrush;
 import turtles.World;
 
+import java.awt.*;
+
 public class Main {
-  public static void main(String[] args) {  
-    World world = new World(600,600);
-   
-     
-    TurtleBrush starBrush = new TurtleBrush(world);
-    TurtleBrush polyBrush = new TurtleBrush(world);
-    TurtleBrush circleBrush = new TurtleBrush(world);
-    TurtleBrush initialBrush = new TurtleBrush(world);
-  
+  public static void main(String[] args) {
+    World world = new World(1200,1200);
+
+/*    StarBrush starBrush = new StarBrush(world);
+    starBrush.setPenWidth(5);
+    starBrush.drawStar(300, 300, 8);*/
+    PolyBrush polyBrush = new PolyBrush(world);
+    polyBrush.drawPoly(200, 5);
+    polyBrush.setColor(Color.BLUE);
+    System.out.println("test");
     world.setVisible(true);
   }
 }

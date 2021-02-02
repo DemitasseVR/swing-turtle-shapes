@@ -30,7 +30,7 @@ public class World extends JComponent implements ModelDisplay
   private int height = 480;
   
   /** the list of turtles in the world */
-  private List<TurtleBrush> turtleList = new ArrayList<TurtleBrush>();
+  private List<SimpleTurtle> turtleList = new ArrayList<SimpleTurtle>();
   
   /** the JFrame to show this world in */
   private JFrame frame = new JFrame("World");
@@ -130,7 +130,7 @@ public class World extends JComponent implements ModelDisplay
    */
   public synchronized void paintComponent(Graphics g)
   {
-    TurtleBrush turtle = null;
+    SimpleTurtle turtle = null;
     
     // draw the background image
     g.drawImage(picture.getImage(),0,0,null);
@@ -139,7 +139,7 @@ public class World extends JComponent implements ModelDisplay
     Iterator iterator = turtleList.iterator();
     while (iterator.hasNext())
     {
-      turtle = (TurtleBrush) iterator.next();
+      turtle = (SimpleTurtle) iterator.next();
       turtle.paintComponent(g);
     } 
   }
@@ -148,9 +148,9 @@ public class World extends JComponent implements ModelDisplay
    * Metod to get the last turtle in this world 
    * @return the last turtle added to this world
    */
-  public TurtleBrush getLastTurtle()
+  public SimpleTurtle getLastTurtle()
   {
-    return (TurtleBrush) turtleList.get(turtleList.size() - 1);
+    return (SimpleTurtle) turtleList.get(turtleList.size() - 1);
   }
   
   
@@ -160,7 +160,7 @@ public class World extends JComponent implements ModelDisplay
    */
   public void addModel(Object model)
   {
-    turtleList.add((TurtleBrush) model);
+    turtleList.add((SimpleTurtle) model);
     if (autoRepaint)
        repaint();
   }
@@ -170,7 +170,7 @@ public class World extends JComponent implements ModelDisplay
    * turtle
    * @return true if there else false
    */
-  public boolean containsTurtle(TurtleBrush turtle)
+  public boolean containsTurtle(SimpleTurtle turtle)
   {
     return (turtleList.contains(turtle));
   }
