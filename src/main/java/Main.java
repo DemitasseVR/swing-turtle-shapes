@@ -1,4 +1,5 @@
 import brushes.CircleBrush;
+import brushes.PinwheelBrush;
 import brushes.PolyBrush;
 import turtles.World;
 
@@ -6,31 +7,32 @@ import java.awt.*;
 
 public class Main {
   public static void main(String[] args) {
-    World world = new World(600,600);
+    World world = new World(300, 300);
 
-/*    StarBrush starBrush = new StarBrush(world);
-    starBrush.setPenWidth(5);
-    starBrush.drawStar(300, 300, 8);*/
     PolyBrush starBrush = new PolyBrush(world);
-    starBrush.setPenWidth(5);
-    starBrush.setColor(Color.RED);
-    starBrush.setShellColor(Color.RED);
-    starBrush.drawStar(200);
+    starBrush.setName("Starry-eyed Dirtle");
+    starBrush.setAllColors(Color.ORANGE);
+    starBrush.drawStar(20, 50, 100);
+    starBrush.printInfoForShape("Star");
 
     PolyBrush polyBrush = new PolyBrush(world);
-    polyBrush.setPenWidth(5);
-    polyBrush.setColor(Color.BLUE);
-    polyBrush.setShellColor(Color.BLUE);
-    polyBrush.drawPoly(5, 100);
-
+    polyBrush.setName("Pent-up Penny");
+    polyBrush.setAllColors(Color.GREEN);
+    polyBrush.drawPoly(200, 30, 5, 50);
+    polyBrush.printInfoForShape("Pentagon");
 
     CircleBrush circleBrush = new CircleBrush(world);
-    circleBrush.setPenWidth(5);
-    circleBrush.setColor(Color.GREEN);
-    circleBrush.setShellColor(Color.GREEN);
-    circleBrush.drawCircle(300, 300, 100);
+    circleBrush.setName("Smooth Sailing Sam");
+    circleBrush.setAllColors(Color.BLUE);
+    circleBrush.drawCircle(70, 200, 50);
+    circleBrush.printInfoForShape("Circle");
 
-    System.out.println("test");
+    PinwheelBrush pinwheelBrush = new PinwheelBrush(world);
+    pinwheelBrush.setName("Windmill Willy");
+    pinwheelBrush.setAllColors(Color.MAGENTA);
+    pinwheelBrush.drawPinwheel(220, 200, 50);
+    pinwheelBrush.printInfoForShape("Pinwheel");
+
     world.setVisible(true);
   }
 }

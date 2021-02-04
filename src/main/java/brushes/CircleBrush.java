@@ -3,8 +3,7 @@ package brushes;
 import turtles.ModelDisplay;
 import turtles.SimpleTurtle;
 
-public class CircleBrush extends SimpleTurtle
-{
+public class CircleBrush extends Brush {
   public CircleBrush(ModelDisplay display) {
     super(display);
   }
@@ -22,11 +21,5 @@ public class CircleBrush extends SimpleTurtle
 
   private int calcY(double angle, int centerY, int radius){
     return (int)(centerY + radius * Math.sin(Math.toRadians(angle)));
-  }
-
-  private void hopTo(int x, int y){
-    penUp();
-    moveTo(x, y);
-    penDown();
   }
 }

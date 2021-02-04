@@ -4,20 +4,19 @@ import turtles.ModelDisplay;
 import turtles.Picture;
 import turtles.SimpleTurtle;
 
-public class PolyBrush extends SimpleTurtle
-{
-  /** Constructor that takes the model display
-   * @param display the thing that displays the model
-   */
+public class PolyBrush extends Brush {
+
   public PolyBrush(ModelDisplay display) {
     super(display);
   }
 
-  public void drawStar(int size){
+  public void drawStar(int x, int y, int size){
+    hopTo(x, y);
     drawPoly(144, size, 5);
   }
 
-  public void drawPoly(int sides, int sideLength){
+  public void drawPoly(int x, int y, int sides, int sideLength){
+    hopTo(x, y);
     drawPoly(calcExternalAngle(sides), sideLength, sides);
   }
 
@@ -28,12 +27,6 @@ public class PolyBrush extends SimpleTurtle
         turn(angle);
     }
     turnLeft();
-  }
-
-  private void hopTo(int x, int y){
-    penUp();
-    moveTo(x, y);
-    penDown();
   }
 
   private double calcExternalAngle(int sides){
