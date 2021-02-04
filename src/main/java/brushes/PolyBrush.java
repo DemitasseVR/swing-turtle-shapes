@@ -13,20 +13,27 @@ public class PolyBrush extends SimpleTurtle
     super(display);
   }
 
-
-  public void drawStar(int size, int sides){
-    drawPoly(size, sides, -180);
+  public void drawStar(int size){
+    drawPoly(144, size, 5);
   }
 
-  public void drawPoly(int size, int sides){
-    drawPoly(size, sides, 0);
+  public void drawPoly(int sides, int sideLength){
+    drawPoly(calcExternalAngle(sides), sideLength, sides);
   }
 
-  private void drawPoly(int size, int sides, double angleOffset){
-    for(int i = 0; i < sides; i++){
-      forward(size);
-      turn(calcExternalAngle(sides) + angleOffset);
+  private void drawPoly(double angle, int length, int repetitions){
+    turnRight();
+    for(int i = 0; i < repetitions; i++){
+        forward(length);
+        turn(angle);
     }
+    turnLeft();
+  }
+
+  private void hopTo(int x, int y){
+    penUp();
+    moveTo(x, y);
+    penDown();
   }
 
   private double calcExternalAngle(int sides){
